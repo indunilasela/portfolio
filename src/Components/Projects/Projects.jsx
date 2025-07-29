@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import automeeticon from "../../assets/Automeet.png";
+import iotimage from "../../assets/iot.jpg";
+import lakpuraimage from "../../assets/lakpura.jpg";
 
 // Typewriter effect for Projects heading
 const TypewriterProjects = () => {
@@ -32,9 +34,9 @@ const TypewriterProjects = () => {
   }, []);
   
   return (
-    <span className="text-blue-400">
+    <span className="text-black">
       {displayText}
-      <span className="animate-pulse text-blue-300">|</span>
+      <span className="animate-pulse text-gray-600">|</span>
     </span>
   );
 };
@@ -97,7 +99,7 @@ const ProjectCard = ({ project, index, openProjectId, setOpenProjectId }) => {
 
   return (
     <ScrollAnimatedSection direction={index % 2 === 0 ? "left" : "right"}>
-      <div className={`transition-all duration-300 ${showDetails ? 'py-8' : 'bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-gray-700/50 hover:border-blue-400/50 group'}`}>
+      <div className={`transition-all duration-300 ${showDetails ? 'py-8' : 'bg-gray-100/80 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-gray-300/50 hover:border-blue-400/50 group shadow-lg'}`}>
         {!showDetails ? (
           // Project Image View
           <div className="text-center">
@@ -111,12 +113,24 @@ const ProjectCard = ({ project, index, openProjectId, setOpenProjectId }) => {
                   alt="AutoMeet Project" 
                   className="w-full h-full object-cover rounded-lg"
                 />
+              ) : project.image === "iot" ? (
+                <img 
+                  src={iotimage}
+                  alt="Auto-Off Ironboard IoT Project" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              ) : project.image === "lakpura" ? (
+                <img 
+                  src={lakpuraimage}
+                  alt="Lakpura E-commerce Project" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
               ) : (
                 <span className="text-6xl">{project.image}</span>
               )}
             </div>
             
-            <h3 className="text-lg font-semibold text-white mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
               {project.title}
             </h3>
             
@@ -125,8 +139,8 @@ const ProjectCard = ({ project, index, openProjectId, setOpenProjectId }) => {
               {project.title === "AutoMeet - Intelligent Meeting Scheduler" ? (
                 <>
                   <a 
-                    href="#projects" 
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 border-0 outline-none"
+                    href="https://github.com/Serryudy/AutomeetFE" 
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 border-0 outline-none"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -136,8 +150,8 @@ const ProjectCard = ({ project, index, openProjectId, setOpenProjectId }) => {
                     Frontend
                   </a>
                   <a 
-                    href="#projects" 
-                    className="flex items-center gap-2 px-4 py-2 bg-black hover:bg-gray-800 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 border-0 outline-none"
+                    href="https://github.com/Serryudy/AutomeetBE" 
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-800 hover:bg-blue-900 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 border-0 outline-none"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -147,10 +161,22 @@ const ProjectCard = ({ project, index, openProjectId, setOpenProjectId }) => {
                     Backend
                   </a>
                 </>
+              ) : project.title === "Lakpura" ? (
+                <a 
+                  href="https://github.com/indunilasela/Lakpura-E-Commerce" 
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 border-0 outline-none"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.30.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                  GitHub
+                </a>
               ) : (
                 <a 
-                  href="#projects" 
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 border-0 outline-none"
+                  href="https://github.com/indunilasela/Harware-project-code" 
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 border-0 outline-none"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -166,28 +192,28 @@ const ProjectCard = ({ project, index, openProjectId, setOpenProjectId }) => {
           // Project Details View (Centered, No Box)
           <div className="text-center max-w-4xl mx-auto">
             <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 {project.title}
               </h3>
               <div className="mb-4 flex justify-center">
-                <span className="text-sm px-4 py-2 bg-green-600/20 text-green-300 rounded-full">
+                <span className="text-sm px-4 py-2 bg-green-100 text-green-800 rounded-full">
                   {project.status}
                 </span>
               </div>
             </div>
                 
-            <p className="text-base text-gray-300 mb-6 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base text-gray-700 mb-6 leading-relaxed max-w-3xl mx-auto">
               {project.description}
             </p>
                 
                 {/* Features */}
                 <div className="mb-6">
-                  <h4 className="text-lg font-medium text-white mb-4">Key Features:</h4>
+                  <h4 className="text-lg font-medium text-gray-900 mb-4">Key Features:</h4>
                   <div className="flex flex-wrap justify-center gap-3">
                     {project.features.map((feature) => (
                       <span 
                         key={feature} 
-                        className="px-3 py-2 bg-gray-600/30 text-gray-300 rounded-lg text-sm hover:bg-gray-600/50 transition-colors duration-300"
+                        className="px-3 py-2 bg-blue-50 text-blue-800 rounded-lg text-sm hover:bg-blue-100 transition-colors duration-300 border border-blue-200"
                       >
                         {feature}
                       </span>
@@ -197,12 +223,12 @@ const ProjectCard = ({ project, index, openProjectId, setOpenProjectId }) => {
                 
                 {/* Technologies */}
                 <div className="mb-6">
-                  <h4 className="text-lg font-medium text-white mb-4">Technologies Used:</h4>
+                  <h4 className="text-lg font-medium text-gray-900 mb-4">Technologies Used:</h4>
                   <div className="flex flex-wrap justify-center gap-3">
                     {project.technologies.map((tech) => (
                       <span 
                         key={tech} 
-                        className="px-3 py-2 bg-blue-600/20 text-blue-300 rounded-lg text-sm hover:bg-blue-600/30 transition-colors duration-300"
+                        className="px-3 py-2 bg-blue-100 text-blue-800 rounded-lg text-sm hover:bg-blue-200 transition-colors duration-300 border border-blue-300"
                       >
                         {tech}
                       </span>
@@ -211,41 +237,66 @@ const ProjectCard = ({ project, index, openProjectId, setOpenProjectId }) => {
                 </div>
                 
                 {/* GitHub Links */}
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-wrap justify-center gap-2">
                   {project.title === "AutoMeet - Intelligent Meeting Scheduler" ? (
                     <>
                       <a 
-                        href="#projects" 
-                        className="flex items-center gap-2 px-3 py-1.5 bg-gray-600 hover:bg-gray-700 text-white rounded-md text-xs font-medium transition-all duration-300 hover:scale-105"
+                        href="https://github.com/Serryudy/AutomeetFE" 
+                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-xs font-medium transition-all duration-300 hover:scale-105"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
-                        GitHub Frontend
+                        Frontend
                       </a>
                       <a 
                         href="#projects" 
-                        className="flex items-center gap-2 px-3 py-1.5 bg-black hover:bg-gray-800 text-white rounded-md text-xs font-medium transition-all duration-300 hover:scale-105"
+                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-800 hover:bg-blue-900 text-white rounded-md text-xs font-medium transition-all duration-300 hover:scale-105"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
-                        GitHub Backend
+                        Backend
+                      </a>
+                    </>
+                  ) : project.title === "Lakpura" ? (
+                    <>
+                      <a 
+                        href="#projects" 
+                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-xs font-medium transition-all duration-300 hover:scale-105"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        Frontend
+                      </a>
+                      <a 
+                        href="#projects" 
+                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-800 hover:bg-blue-900 text-white rounded-md text-xs font-medium transition-all duration-300 hover:scale-105"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.30.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        Backend
                       </a>
                     </>
                   ) : (
                     <a 
                       href="#projects" 
-                      className="flex items-center gap-2 px-3 py-1.5 bg-gray-600 hover:bg-gray-700 text-white rounded-md text-xs font-medium transition-all duration-300 hover:scale-105"
+                      className="flex items-center gap-1 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-xs font-medium transition-all duration-300 hover:scale-105"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.30.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                       </svg>
                       GitHub
                     </a>
@@ -285,25 +336,25 @@ const Projects = ({ onPageChange }) => {
     },
     {
       id: 2,
-      title: "Portfolio Website",
-      description: "A personal portfolio website showcasing my skills, projects, and experience. Built with React and Tailwind CSS, featuring smooth animations, responsive design, dark theme, and interactive elements. Includes sections for about, skills, projects, and contact information.",
-      technologies: ["React", "Tailwind CSS", "JavaScript", "CSS3", "HTML5"],
+      title: "Lakpura",
+      description: "Developed a fully responsive e-commerce platform aimed at promoting and selling traditional Sri Lankan handicraft masks. The application features a smooth and secure shopping experience with functionalities including user authentication, dynamic product listing, shopping cart management, and real-time order tracking.",
+      technologies: ["HTML", "CSS", "JavaScript"],
       category: "software",
       status: "Completed",
-      image: "💼",
+      image: "lakpura",
       githubUrl: true,
-      features: ["Responsive Design", "Smooth Animations", "Dark Theme", "Contact Form", "SEO Optimized"]
+      features: ["User Authentication", "Product Listing", "Cart Management", "Responsive Design"]
     },
     {
       id: 3,
-      title: "IoT Smart Home System",
-      description: "An Internet of Things project for home automation using Arduino and sensors. The system controls lighting, temperature, and security features remotely through a mobile app. Includes real-time monitoring and automated responses based on environmental conditions.",
-      technologies: ["Arduino", "C++", "Sensors", "WiFi Module", "Mobile App"],
+      title: "Auto-Off Ironboard",
+      description: "We proudly present our freshman hardware project — the Auto-Off Ironboard — a smart solution to a common household issue: forgetting to turn off the iron. Designed for both safety and energy efficiency, this system automatically powers off the iron when it's left unattended, preventing accidents and saving electricity.",
+      technologies: ["Arduino Mega", "C++"],
       category: "hardware",
       status: "Completed",
-      image: "🏠",
+      image: "iot",
       githubUrl: true,
-      features: ["Remote Control", "Sensor Monitoring", "Automated Responses", "Mobile Integration", "Real-time Data"]
+      features: ["Arduino Microcontroller", "Ultrasonic Sensor", "PIR Motion Sensor", "MAX6675 Thermocouple", "Relay Control System", "PZEM004 Power Monitor", "Real-Time Clock (RTC) Module", "Display Module", "Micro SD Card Storage"]
     }
   ];
 
@@ -312,7 +363,7 @@ const Projects = ({ onPageChange }) => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <div className="text-white bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 min-h-screen">
+    <div className="text-gray-800 bg-gradient-to-r from-white to-blue-200 min-h-screen">
       <div className="container mx-auto px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24">
         <div className="min-h-screen py-4 lg:py-6">
           
@@ -321,7 +372,7 @@ const Projects = ({ onPageChange }) => {
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight tracking-tight mb-4">
               <TypewriterProjects />
             </h1>
-            <div className={`w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto transition-all duration-1000 delay-1000 ${
+            <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto transition-all duration-1000 delay-1000 ${
               isLoaded ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
             }`}></div>
           </div>
@@ -340,7 +391,7 @@ const Projects = ({ onPageChange }) => {
                   className={`px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm lg:text-base font-medium rounded-full transition-all duration-300 hover:scale-105 ${
                     activeFilter === filter.key
                       ? 'bg-blue-600 text-white shadow-lg'
-                      : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white'
+                      : 'bg-blue-100 text-blue-800 hover:bg-blue-200 hover:text-blue-900'
                   }`}
                 >
                   {filter.label}

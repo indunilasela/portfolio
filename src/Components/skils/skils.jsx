@@ -31,9 +31,9 @@ const TypewriterSkills = () => {
   }, []);
   
   return (
-    <span className="text-blue-400">
+    <span className="text-black">
       {displayText}
-      <span className="animate-pulse text-blue-300">|</span>
+      <span className="animate-pulse text-gray-600">|</span>
     </span>
   );
 };
@@ -180,11 +180,11 @@ const Skills = ({ onPageChange }) => {
   const getButtonColor = (category) => {
     return activeCategory === category 
       ? 'bg-blue-600 text-white' 
-      : 'bg-blue-600/20 text-blue-400 hover:bg-blue-600/30';
+      : 'bg-blue-100 text-blue-800 hover:bg-blue-200';
   };
 
   return (
-    <div className="text-white bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 min-h-screen">
+    <div className="text-black bg-gradient-to-r from-white to-blue-200 min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="min-h-screen py-6 sm:py-8 lg:py-12">
           
@@ -193,7 +193,7 @@ const Skills = ({ onPageChange }) => {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight tracking-tight mb-4 sm:mb-6">
               <TypewriterSkills />
             </h1>
-            <div className={`w-16 sm:w-20 md:w-24 lg:w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto transition-all duration-1000 delay-1000 ${
+            <div className={`w-16 sm:w-20 md:w-24 lg:w-32 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto transition-all duration-1000 delay-1000 ${
               isLoaded ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
             }`}></div>
           </div>
@@ -207,15 +207,15 @@ const Skills = ({ onPageChange }) => {
                   onClick={() => handleCategoryClick(key)}
                   className={`p-3 sm:p-4 lg:p-6 rounded-xl transition-all duration-300 hover:scale-105 border-2 ${
                     activeCategory === key 
-                      ? 'border-blue-400' 
-                      : 'border-gray-600/50 hover:border-blue-400/50'
+                      ? 'border-blue-600' 
+                      : 'border-blue-300 hover:border-blue-500'
                   } ${getButtonColor(key)} w-full`}
                 >
                   <div className="text-center">
                     <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold leading-tight">
                       {category.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-gray-400 mt-1 sm:mt-2">
+                    <p className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2">
                       {category.skills.length} Skills
                     </p>
                   </div>
@@ -228,8 +228,8 @@ const Skills = ({ onPageChange }) => {
           <div className="max-w-7xl mx-auto px-4">
             {activeCategory && (
               <ScrollAnimatedSection direction="up" key={activeCategory}>
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8 border border-gray-700/50 hover:border-yellow-400/50 transition-all duration-300">
-                  <h3 className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-4 sm:mb-6 lg:mb-8">
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8 border border-blue-300 hover:border-blue-500 transition-all duration-300 shadow-lg">
+                  <h3 className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-black mb-4 sm:mb-6 lg:mb-8">
                     {skillCategories[activeCategory].title}
                   </h3>
                   
@@ -237,7 +237,7 @@ const Skills = ({ onPageChange }) => {
                     {skillCategories[activeCategory].skills.map((skill, index) => (
                       <div 
                         key={skill.name} 
-                        className="text-center p-3 sm:p-4 lg:p-6 bg-gray-700/30 rounded-lg hover:bg-blue-600/20 hover:scale-105 transition-all duration-300"
+                        className="text-center p-3 sm:p-4 lg:p-6 bg-blue-50 rounded-lg hover:bg-blue-100 hover:scale-105 transition-all duration-300 shadow-sm"
                         style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <img 
@@ -245,7 +245,7 @@ const Skills = ({ onPageChange }) => {
                           alt={skill.name}
                           className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 mx-auto mb-2 sm:mb-3 object-contain"
                         />
-                        <span className="text-xs sm:text-sm md:text-base text-gray-300 hover:text-white transition-colors duration-300 block font-medium">
+                        <span className="text-xs sm:text-sm md:text-base text-blue-600 hover:text-blue-800 transition-colors duration-300 block font-medium">
                           {skill.name}
                         </span>
                       </div>

@@ -101,76 +101,22 @@ const TypewriterName = () => {
   }, []);
   
   return (
-    <span className="text-blue-400">
+    <span className="text-black">
       Hi, I'm {displayText}
-      <span className="animate-pulse text-blue-300">|</span>
+      <span className="animate-pulse text-gray-600">|</span>
     </span>
   );
 };
 
-// Animated Rings Component with rings overlapping onto the border
-const AnimatedRings = ({ children }) => {
+// Simple rectangular frame component without animations
+const RectangularFrame = ({ children }) => {
   return (
     <div className="relative w-full h-full">
-      {/* Profile Image with border frame */}
-      <div className="relative z-10 w-full h-full p-1 rounded-full bg-gradient-to-br from-blue-400 via-purple-400 to-pink-500">
-        <div className="w-full h-full rounded-full overflow-hidden">
+      {/* Profile Image with rectangular border frame */}
+      <div className="relative z-10 w-full h-full p-1 rounded-lg bg-gradient-to-br from-blue-400 via-purple-400 to-pink-500 shadow-2xl">
+        <div className="w-full h-full rounded-lg overflow-hidden">
           {children}
         </div>
-      </div>
-      
-      {/* First Snake Ring - Download CV Button Color (overlapping onto border) */}
-      <div className="absolute inset-0 w-full h-full">
-        <svg className="absolute inset-0 w-full h-full animate-spin" viewBox="0 0 200 200" style={{ animationDuration: '4s' }}>
-          <circle
-            cx="100"
-            cy="100"
-            r="98"
-            fill="none"
-            stroke="url(#downloadGradient)"
-            strokeWidth="6"
-            strokeDasharray="100 15"
-            strokeLinecap="round"
-          />
-          <defs>
-            <linearGradient id="downloadGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#8b5cf6" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      
-      {/* Second Snake Ring - Background Color (overlapping onto border) */}
-      <div className="absolute inset-0 w-full h-full">
-        <svg className="absolute inset-0 w-full h-full animate-spin" viewBox="0 0 200 200" style={{ animationDuration: '3s', animationDirection: 'reverse' }}>
-          <circle
-            cx="100"
-            cy="100"
-            r="95"
-            fill="none"
-            stroke="#8b5cf6"
-            strokeWidth="5"
-            strokeDasharray="80 20"
-            strokeLinecap="round"
-          />
-        </svg>
-      </div>
-      
-      {/* Third Snake Ring - White (overlapping onto border) */}
-      <div className="absolute inset-0 w-full h-full">
-        <svg className="absolute inset-0 w-full h-full animate-spin" viewBox="0 0 200 200" style={{ animationDuration: '5s' }}>
-          <circle
-            cx="100"
-            cy="100"
-            r="92"
-            fill="none"
-            stroke="white"
-            strokeWidth="4"
-            strokeDasharray="60 25"
-            strokeLinecap="round"
-          />
-        </svg>
       </div>
     </div>
   );
@@ -201,7 +147,7 @@ const InstagramIcon = () => (
   </svg>
 );
 
-const Home = ({ onPageChange }) => {
+const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showCenter, setShowCenter] = useState(false);
   const [showFinal, setShowFinal] = useState(false);
@@ -231,35 +177,35 @@ const Home = ({ onPageChange }) => {
     {
       name: "GitHub",
       icon: <GitHubIcon />,
-      url: "#home",
+      url: "https://github.com/indunilasela",
       hoverColor: "hover:text-gray-300",
       bgHover: "hover:bg-gray-700/60"
     },
     {
       name: "LinkedIn", 
       icon: <LinkedInIcon />,
-      url: "#home",
+      url: "https://www.linkedin.com/in/indunil-asela/",
       hoverColor: "hover:text-blue-400",
       bgHover: "hover:bg-blue-500/20"
     },
     {
       name: "Facebook",
       icon: <FacebookIcon />,
-      url: "#home", 
+      url: "https://www.facebook.com/share/1JuBSaEihv/", 
       hoverColor: "hover:text-blue-500",
       bgHover: "hover:bg-blue-600/20"
     },
     {
       name: "Instagram",
       icon: <InstagramIcon />,
-      url: "#home",
+      url: "https://instagram.com/indunil__asela",
       hoverColor: "hover:text-pink-400",
       bgHover: "hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-purple-500/20"
     }
   ];
 
   return (
-    <div className="text-white bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 min-h-screen">
+    <div className="text-gray-800 bg-gradient-to-r from-white to-blue-400 min-h-screen">
       <div className="container mx-auto px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24 md:pl-16 lg:pl-20 xl:pl-24 2xl:pl-32 md:pr-12 lg:pr-16 xl:pr-20 2xl:pr-28">
         <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen py-40 lg:py-6 gap-8 lg:gap-12 xl:gap-16">
           
@@ -277,16 +223,16 @@ const Home = ({ onPageChange }) => {
             
             {/* Description */}
             <div className="space-y-2 lg:space-y-3">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-300 leading-relaxed hover:text-blue-300 transition-colors duration-300">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-700 leading-relaxed hover:text-gray-900 transition-colors duration-300">
                 Undergraduate at the{" "}
-                <span className="text-blue-400 font-semibold hover:text-blue-300 transition-colors duration-300">
+                <span className="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300">
                   University of Moratuwa
                 </span>
               </p>
-              <p className="text-xs sm:text-sm md:text-sm lg:text-base xl:text-lg text-gray-400 hover:text-gray-200 transition-colors duration-300">
+              <p className="text-xs sm:text-sm md:text-sm lg:text-base xl:text-lg text-gray-600 hover:text-gray-800 transition-colors duration-300">
                 Faculty of Information Technology
               </p>
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white font-medium hover:text-blue-300 transition-colors duration-300">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 font-medium hover:text-blue-700 transition-colors duration-300">
                 Full-Stack Web Developer
               </p>
             </div>
@@ -295,7 +241,7 @@ const Home = ({ onPageChange }) => {
             <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 lg:pt-4 justify-center lg:justify-start transition-all duration-1000 ${
               !showFinal ? 'scale-75 opacity-0' : 'scale-100 opacity-100'
             }`}>
-              <button className="px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-out">
+              <button className="px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-out">
                 Download CV
               </button>
               <button className="px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-out">
@@ -304,20 +250,20 @@ const Home = ({ onPageChange }) => {
             </div>
             
             {/* Stats Section - Slides in from left */}
-            <div className={`flex flex-wrap justify-center lg:justify-start gap-4 pt-4 lg:pt-6 text-xs text-gray-400 transition-all duration-1000 ${
+            <div className={`flex flex-wrap justify-center lg:justify-start gap-4 pt-4 lg:pt-6 text-xs text-gray-600 transition-all duration-1000 ${
               !showFinal ? 'translate-x-0 opacity-0' : 'translate-x-0 opacity-100'
             }`}>
-              <div className="text-center hover:scale-110 hover:text-white transition-all duration-300 cursor-pointer">
-                <div className="text-lg sm:text-xl font-bold text-white">50+</div>
+              <div className="text-center hover:scale-110 hover:text-blue-700 transition-all duration-300 cursor-pointer">
+                <div className="text-lg sm:text-xl font-bold text-gray-900">2+</div>
                 <div className="text-xs">Projects</div>
               </div>
-              <div className="text-center hover:scale-110 hover:text-white transition-all duration-300 cursor-pointer">
-                <div className="text-lg sm:text-xl font-bold text-white">3+</div>
+              {/* <div className="text-center hover:scale-110 hover:text-blue-700 transition-all duration-300 cursor-pointer">
+                <div className="text-lg sm:text-xl font-bold text-gray-900">3+</div>
                 <div className="text-xs">Years Experience</div>
-              </div>
-              <div className="text-center hover:scale-110 hover:text-white transition-all duration-300 cursor-pointer">
-                <div className="text-lg sm:text-xl font-bold text-white">100+</div>
-                <div className="text-xs">Happy Clients</div>
+              </div> */}
+              <div className="text-center hover:scale-110 hover:text-blue-700 transition-all duration-300 cursor-pointer">
+                <div className="text-lg sm:text-xl font-bold text-gray-900">13+</div>
+                <div className="text-xs">Technologies</div>
               </div>
             </div>
 
@@ -333,7 +279,7 @@ const Home = ({ onPageChange }) => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group relative p-2 sm:p-2.5 md:p-3 bg-gray-800/30 backdrop-blur-sm rounded-full text-gray-400 ${social.hoverColor} ${social.bgHover} transform transition-all duration-500 shadow-md hover:shadow-2xl border border-gray-700/50 hover:border-gray-600/50 animate-bounce-in animate-float hover:animate-glow-pulse`}
+                    className={`group relative p-2 sm:p-2.5 md:p-3 bg-gray-800/30 backdrop-blur-sm rounded-full text-black ${social.hoverColor} ${social.bgHover} transform transition-all duration-500 shadow-md hover:shadow-2xl border border-gray-700/50 hover:border-gray-600/50 animate-bounce-in animate-float hover:animate-glow-pulse`}
                     style={{ 
                       animationDelay: `${(index * 150) + 500}ms`,
                       animationFillMode: 'both'
@@ -366,21 +312,18 @@ const Home = ({ onPageChange }) => {
             </div>
           </div>
           
-          {/* Right Content - Profile Image complex animation sequence */}
-          <div className={`flex-shrink-0 order-1 lg:order-2 transition-all duration-1000 ease-out hover:scale-105 ${
-            !isLoaded ? 'translate-x-full opacity-0' :
-            !showCenter ? 'translate-x-0 opacity-100' :
-            !showFinal ? 'lg:-translate-x-32 translate-x-0 opacity-100' :
-            'translate-x-0 opacity-100'
+          {/* Right Content - Profile Image */}
+          <div className={`flex-shrink-0 order-1 lg:order-2 transition-all duration-1000 ease-out ${
+            !isLoaded ? 'translate-x-full opacity-0' : 'translate-x-0 opacity-100'
           }`}>
-            <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 2xl:w-[420px] 2xl:h-[420px] hover:rotate-6 transition-transform duration-500 mx-auto lg:mx-0">
-              <AnimatedRings>
+            <div className="w-56 h-64 sm:w-64 sm:h-72 md:w-72 md:h-80 lg:w-80 lg:h-96 xl:w-96 xl:h-[420px] 2xl:w-[420px] 2xl:h-[460px] mx-auto lg:mx-0">
+              <RectangularFrame>
                 <img 
                   className="w-full h-full object-cover object-center" 
                   src={avatarImg} 
                   alt="Indunil Asela - Full Stack Developer" 
                 />
-              </AnimatedRings>
+              </RectangularFrame>
             </div>
           </div>
         </div>

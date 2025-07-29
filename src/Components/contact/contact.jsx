@@ -52,44 +52,6 @@ const SendIcon = () => (
   </svg>
 );
 
-// Typewriter effect for Contact heading
-const TypewriterContact = () => {
-  const [displayText, setDisplayText] = useState("");
-  const fullText = "Contact Me";
-  
-  useEffect(() => {
-    let timeoutId;
-    
-    const typeText = () => {
-      let currentIndex = 0;
-      
-      const typeNextChar = () => {
-        if (currentIndex < fullText.length) {
-          setDisplayText(fullText.slice(0, currentIndex + 1));
-          currentIndex++;
-          timeoutId = setTimeout(typeNextChar, 150);
-        }
-      };
-      
-      typeNextChar();
-    };
-    
-    const timer = setTimeout(typeText, 500);
-    
-    return () => {
-      clearTimeout(timeoutId);
-      clearTimeout(timer);
-    };
-  }, []);
-  
-  return (
-    <span className="text-black">
-      {displayText}
-      <span className="animate-pulse text-gray-600">|</span>
-    </span>
-  );
-};
-
 // Scroll-triggered animated sections
 const ScrollAnimatedSection = ({ children, direction = "left", className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -160,17 +122,17 @@ const ContactPage = () => {
     
     try {
       // EmailJS configuration - these are public demo credentials
-      const serviceId = 'service_ow57u2h';
-      const templateId = 'template_q0rs2te';
-      const publicKey = 'yOasyCDP2RzUQOiut';
+      const serviceId = 'service_8hu3qgf';
+      const templateId = 'template_portfolio';
+      const publicKey = 'gJO5JV8v4P_pQ8SBe';
       
       // Prepare template parameters
       const templateParams = {
-        user_name: formData.name,
-        user_email: formData.email,
-        user_subject: formData.subject,
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
         message: formData.message,
-        to_name: 'Asela'
+        to_email: 'i.asela919@gmail.com'
       };
 
       // Send email using EmailJS
@@ -181,35 +143,15 @@ const ContactPage = () => {
         publicKey
       );
 
-      console.log('EmailJS Response:', response);
-
       if (response.status === 200) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        console.error('EmailJS Error - Status:', response.status);
         setSubmitStatus('error');
       }
     } catch (error) {
       console.error('Error sending email:', error);
-      console.error('Error details:', error.text || error.message);
-      console.error('Error status:', error.status);
-      
-      // Show specific error messages
-      let errorMessage = "Sorry, there was an error sending your message.";
-      
-      if (error.status === 412) {
-        errorMessage = "Email service authentication error. Please try again later or contact me directly.";
-      } else if (error.status === 400) {
-        errorMessage = "Invalid email configuration. Please contact me directly.";
-      } else if (error.status === 404) {
-        errorMessage = "Email service not found. Please contact me directly.";
-      }
-      
       setSubmitStatus('error');
-      
-      // You can also display the specific error message
-      console.log("User-friendly error:", errorMessage);
     }
     
     // Clear status message after 5 seconds
@@ -217,30 +159,11 @@ const ContactPage = () => {
   };
 
   const currentYear = new Date().getFullYear();
-  const [isLoaded, setIsLoaded] = useState(false);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-white to-blue-200 text-gray-800">
+    <div className="min-h-screen bg-[#171d32] text-white">
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-        {/* Header Section */}
-        <div className="text-center mb-8 lg:mb-12">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight tracking-tight mb-4">
-            <TypewriterContact />
-          </h1>
-          <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto transition-all duration-1000 delay-1000 ${
-            isLoaded ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
-          }`}></div>
-        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           
@@ -248,67 +171,67 @@ const ContactPage = () => {
           <ScrollAnimatedSection direction="left">
             <div className="space-y-8">
               <div>
-                <h2 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-gray-900 mb-6">Contact Information</h2>
+                <h2 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-white mb-6">Contact Information</h2>
                 
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4 hover:transform hover:scale-105 transition-all duration-300">
-                    <div className="bg-blue-50 backdrop-blur-sm border border-blue-200 hover:border-blue-400 p-3 rounded-full hover:bg-blue-100 transition-all duration-300 shadow-sm">
+                    <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 hover:border-gray-600/50 p-3 rounded-full hover:bg-blue-500/20 transition-all duration-300">
                       <EmailIcon />
                     </div>
                     <div>
-                      <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900">Email</h3>
-                      <p className="text-xs sm:text-sm md:text-base text-gray-600 hover:text-blue-600 transition-colors duration-300">i.asela919@gmail.com</p>
+                      <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-white">Email</h3>
+                      <p className="text-xs sm:text-sm md:text-base text-gray-400 hover:text-blue-400 transition-colors duration-300">i.asela919@gmail.com</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4 hover:transform hover:scale-105 transition-all duration-300">
-                    <div className="bg-blue-50 backdrop-blur-sm border border-blue-200 hover:border-blue-400 p-3 rounded-full hover:bg-blue-100 transition-all duration-300 shadow-sm">
+                    <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 hover:border-gray-600/50 p-3 rounded-full hover:bg-green-500/20 transition-all duration-300">
                       <PhoneIcon />
                     </div>
                     <div>
-                      <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900">Phone</h3>
-                      <p className="text-xs sm:text-sm md:text-base text-gray-600 hover:text-blue-600 transition-colors duration-300">+94 70 1574865</p>
+                      <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-white">Phone</h3>
+                      <p className="text-xs sm:text-sm md:text-base text-gray-400 hover:text-green-400 transition-colors duration-300">+94 77 123 4567</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4 hover:transform hover:scale-105 transition-all duration-300">
-                    <div className="bg-blue-50 backdrop-blur-sm border border-blue-200 hover:border-blue-400 p-3 rounded-full hover:bg-blue-100 transition-all duration-300 shadow-sm">
+                    <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 hover:border-gray-600/50 p-3 rounded-full hover:bg-purple-500/20 transition-all duration-300">
                       <LocationIcon />
                     </div>
                     <div>
-                      <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900">Location</h3>
-                      <p className="text-xs sm:text-sm md:text-base text-gray-600 hover:text-blue-600 transition-colors duration-300">Moratuwa, Western Province, Sri Lanka</p>
+                      <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-white">Location</h3>
+                      <p className="text-xs sm:text-sm md:text-base text-gray-400 hover:text-purple-400 transition-colors duration-300">Moratuwa, Western Province, Sri Lanka</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900 mb-4">Connect With Me</h3>
+                <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-white mb-4">Connect With Me</h3>
                 <div className="flex space-x-4">
-                  <a href="https://www.linkedin.com/in/indunil-asela/" target="_blank" rel="noopener noreferrer" className="group relative p-3 bg-blue-50 backdrop-blur-sm rounded-full text-gray-600 hover:text-blue-600 hover:bg-blue-100 transform transition-all duration-500 shadow-sm hover:shadow-md border border-blue-200 hover:border-blue-400">
+                  <a href="#" className="group relative p-3 bg-gray-800/30 backdrop-blur-sm rounded-full text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 transform transition-all duration-500 shadow-md hover:shadow-2xl border border-gray-700/50 hover:border-gray-600/50">
                     <div className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                       <LinkedInIcon />
                     </div>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-600/10 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300"></div>
                   </a>
-                  <a href="https://github.com/indunilasela" target="_blank" rel="noopener noreferrer" className="group relative p-3 bg-blue-50 backdrop-blur-sm rounded-full text-gray-600 hover:text-gray-800 hover:bg-blue-100 transform transition-all duration-500 shadow-sm hover:shadow-md border border-blue-200 hover:border-blue-400">
+                  <a href="#" className="group relative p-3 bg-gray-800/30 backdrop-blur-sm rounded-full text-gray-400 hover:text-gray-300 hover:bg-gray-700/60 transform transition-all duration-500 shadow-md hover:shadow-2xl border border-gray-700/50 hover:border-gray-600/50">
                     <div className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                       <GitHubIcon />
                     </div>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-600/10 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300"></div>
                   </a>
-                  <a href="https://www.facebook.com/share/1JuBSaEihv/" target="_blank" rel="noopener noreferrer" className="group relative p-3 bg-blue-50 backdrop-blur-sm rounded-full text-gray-600 hover:text-blue-600 hover:bg-blue-100 transform transition-all duration-500 shadow-sm hover:shadow-md border border-blue-200 hover:border-blue-400">
+                  <a href="#" className="group relative p-3 bg-gray-800/30 backdrop-blur-sm rounded-full text-gray-400 hover:text-blue-500 hover:bg-blue-600/20 transform transition-all duration-500 shadow-md hover:shadow-2xl border border-gray-700/50 hover:border-gray-600/50">
                     <div className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                       <FacebookIcon />
                     </div>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-600/10 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300"></div>
                   </a>
-                  <a href="https://instagram.com/indunil__asela" target="_blank" rel="noopener noreferrer" className="group relative p-3 bg-blue-50 backdrop-blur-sm rounded-full text-gray-600 hover:text-pink-600 hover:bg-blue-100 transform transition-all duration-500 shadow-sm hover:shadow-md border border-blue-200 hover:border-blue-400">
+                  <a href="#" className="group relative p-3 bg-gray-800/30 backdrop-blur-sm rounded-full text-gray-400 hover:text-pink-400 hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-purple-500/20 transform transition-all duration-500 shadow-md hover:shadow-2xl border border-gray-700/50 hover:border-gray-600/50">
                     <div className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                       <InstagramIcon />
                     </div>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-600/10 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300"></div>
                   </a>
                 </div>
               </div>
@@ -317,31 +240,31 @@ const ContactPage = () => {
 
           {/* Contact Form */}
           <ScrollAnimatedSection direction="right">
-            <div className="bg-gray-100/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-300/50">
-              <h2 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-gray-900 mb-6">Send Me a Message</h2>
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-gray-700">
+              <h2 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-white mb-6">Send Me a Message</h2>
               
               {submitStatus === 'sending' && (
-                <div className="mb-6 p-4 bg-blue-50 border border-blue-300 text-blue-800 rounded-lg">
-                  <p className="font-semibold text-center">Sending email... ⏳</p>
+                <div className="mb-6 p-4 bg-blue-900/50 border border-blue-600 text-blue-400 rounded-lg">
+                  <p className="font-semibold text-center">Sending email... </p>
                 </div>
               )}
 
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-300 text-green-800 rounded-lg">
-                  <p className="font-semibold text-center">Email sent successfully! 🎉</p>
+                <div className="mb-6 p-4 bg-green-900/50 border border-green-600 text-green-400 rounded-lg">
+                  <p className="font-semibold text-center">Email sent successfully! </p>
                 </div>
               )}
 
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-300 text-red-800 rounded-lg">
+                <div className="mb-6 p-4 bg-red-900/50 border border-red-600 text-red-400 rounded-lg">
                   Sorry, there was an error sending your message. Please try again or contact me directly at i.asela919@gmail.com
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                    Your Name
+                  <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
+                    Your Name *
                   </label>
                   <input
                     type="text"
@@ -350,14 +273,14 @@ const ContactPage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-xs sm:text-sm md:text-base"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-400 text-xs sm:text-sm md:text-base"
                     placeholder="Enter your full name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                    Email Address
+                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
+                    Email Address *
                   </label>
                   <input
                     type="email"
@@ -366,14 +289,14 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-xs sm:text-sm md:text-base"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-400 text-xs sm:text-sm md:text-base"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                    Subject
+                  <label htmlFor="subject" className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
+                    Subject *
                   </label>
                   <input
                     type="text"
@@ -382,14 +305,14 @@ const ContactPage = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-xs sm:text-sm md:text-base"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-400 text-xs sm:text-sm md:text-base"
                     placeholder="What's this about?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                    Message
+                  <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
+                    Message *
                   </label>
                   <textarea
                     id="message"
@@ -398,7 +321,7 @@ const ContactPage = () => {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical placeholder-gray-500 text-xs sm:text-sm md:text-base"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical placeholder-gray-400 text-xs sm:text-sm md:text-base"
                     placeholder="Tell me about your project or just say hello..."
                   ></textarea>
                 </div>
