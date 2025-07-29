@@ -251,7 +251,7 @@ const ContactPage = () => {
 
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-900/50 border border-green-600 text-green-400 rounded-lg">
-                  <p className="font-semibold text-center">Email sent successfully! </p>
+                  <p className="font-semibold text-center">Email sent successfully!</p>
                 </div>
               )}
 
