@@ -83,7 +83,7 @@ const VerticalNavbar = ({ currentPage, onPageChange }) => {
             onClick={() => navigateToPage('home')}
             className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg lg:rounded-xl flex items-center justify-center text-white font-bold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-lg hover:shadow-2xl"
           >
-            P
+            IA
           </button>
         </div>
 
@@ -140,7 +140,7 @@ const App = () => {
   const renderCurrentPage = () => {
     switch (currentPage) {
       case 'home':
-        return <Home />;
+        return <Home onPageChange={setCurrentPage} />;
       case 'about':
         return <About />;
       case 'education':
@@ -152,7 +152,7 @@ const App = () => {
       case 'contact':
         return <Contact />;
       default:
-        return <Home />;
+        return <Home onPageChange={setCurrentPage} />;
     }
   };
 
