@@ -200,7 +200,7 @@ const Education = ({ onPageChange }) => {
                   Academic Achievements
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-3">
-                  {["Coderush-2023(Rank43)","japuraXtreme-2024(Participation)","Coderush-2025(Finalist)"].map((achievement, index) => (
+                  {["Coderush-2023(Rank43)","JapuraXtreme-2024(Participation)","Coderush-2025(Finalist)","MoraXteam 9.0(Participation)"].map((achievement, index) => (
                     <div 
                       key={achievement}
                       className="text-center p-2 lg:p-3 bg-gray-200/60 rounded-lg hover:bg-blue-100/80 hover:scale-105 transition-all duration-300 shadow-sm"
