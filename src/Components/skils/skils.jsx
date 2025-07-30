@@ -133,7 +133,7 @@ const Skills = ({ onPageChange }) => {
         { name: "Java", level: 75, image: "/src/assets/java.png" },
         { name: "PHP", level: 70, image: "/src/assets/php.png" },
         { name: "C++", level: 75, image: "/src/assets/c++.png" },
-        { name: "C", level: 70, image: "/src/assets/c.png" }
+        { name: "C", level: 70, image: "/src/assets/c.jpg" }
       ]
     },
     frontend: {
