@@ -5,7 +5,7 @@ import Home from './Components/Home/Home';
  import About from './Components/About/About';
 import Education from './Components/Education/Education';
  import Skills from './Components/skils/skils';
- import Projects from './Components/projects/projects';
+ import Projects from './Components/projects/Projects';
 import Contact from './Components/Footer/contact';
 
 // Mock components for demonstration (replace with your actual components)
