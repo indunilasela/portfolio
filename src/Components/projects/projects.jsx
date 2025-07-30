@@ -447,5 +447,4 @@ const Projects = ({ onPageChange }) => {
   );
 };
 
-export default Projects;/ /   F i l e   r e n a m e d   f r o m   P r o j e c t s . j s x   t o   p r o j e c t s . j s x   f o r   d e p l o y m e n t   c o m p a t i b i l i t y  
- 
+export default Projects;
