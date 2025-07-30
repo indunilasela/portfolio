@@ -75,19 +75,20 @@ const VerticalNavbar = ({ currentPage, onPageChange }) => {
 
   return (
     <>
-      <nav className="fixed left-0 top-0 h-full w-12 sm:w-14 md:w-16 lg:w-20 xl:w-24 bg-gray-900/95 backdrop-blur-sm shadow-2xl z-50 flex flex-col items-center py-3 sm:py-4 md:py-6 lg:py-8 border-r border-gray-700/50">
-        <div className={`mb-4 sm:mb-6 md:mb-8 lg:mb-12 transition-all duration-1500 ease-out ${
+      {/* Desktop Sidebar Navigation - Hidden on mobile */}
+      <nav className="hidden md:flex fixed left-0 top-0 h-full w-16 lg:w-20 xl:w-24 bg-gray-900/95 backdrop-blur-sm shadow-2xl z-50 flex-col items-center py-6 lg:py-8 border-r border-gray-700/50">
+        <div className={`mb-8 lg:mb-12 transition-all duration-1500 ease-out ${
           isLoaded ? 'translate-y-0 opacity-100 scale-100' : '-translate-y-10 opacity-0 scale-50'
         }`}>
           <button 
             onClick={() => navigateToPage('home')}
-            className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg lg:rounded-xl flex items-center justify-center text-white font-bold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-lg hover:shadow-2xl"
+            className="w-10 h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg lg:rounded-xl flex items-center justify-center text-white font-bold text-base lg:text-lg xl:text-xl hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-lg hover:shadow-2xl"
           >
             IA
           </button>
         </div>
 
-        <div className="flex flex-col space-y-1 sm:space-y-1.5 md:space-y-2 lg:space-y-3 xl:space-y-4 flex-1">
+        <div className="flex flex-col space-y-2 lg:space-y-3 xl:space-y-4 flex-1">
           {navigationItems.map((item, index) => (
             <div
               key={item.id}
@@ -98,34 +99,63 @@ const VerticalNavbar = ({ currentPage, onPageChange }) => {
             >
               <button
                 onClick={() => navigateToPage(item.id)}
-                className={`group relative w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 rounded-lg lg:rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                className={`group relative w-10 h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 rounded-lg lg:rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 ${
                   currentPage === item.id
                     ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/25'
                     : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                 }`}
                 aria-label={item.label}
               >
-                <div className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6">
+                <div className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6">
                   {item.icon}
                 </div>
                 
-                <div className="hidden sm:block absolute left-full ml-2 md:ml-3 lg:ml-4 px-2 md:px-3 py-1 md:py-2 bg-gray-800 text-white text-xs md:text-sm rounded-md lg:rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10 shadow-xl">
+                <div className="hidden xl:block absolute left-full ml-3 lg:ml-4 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10 shadow-xl">
                   {item.label}
-                  <div className="absolute right-full top-1/2 transform -translate-y-1/2 border-2 md:border-4 border-transparent border-r-gray-800"></div>
+                  <div className="absolute right-full top-1/2 transform -translate-y-1/2 border-4 border-transparent border-r-gray-800"></div>
                 </div>
 
                 {currentPage === item.id && (
-                  <div className="absolute -right-px top-1/2 transform -translate-y-1/2 w-0.5 md:w-1 h-4 md:h-6 lg:h-8 bg-blue-500 rounded-l-full"></div>
+                  <div className="absolute -right-px top-1/2 transform -translate-y-1/2 w-1 h-6 lg:h-8 bg-blue-500 rounded-l-full"></div>
                 )}
               </button>
             </div>
           ))}
         </div>
 
-        <div className={`mt-2 sm:mt-4 md:mt-6 lg:mt-8 transition-all duration-1500 ease-out delay-1500 ${
+        <div className={`mt-6 lg:mt-8 transition-all duration-1500 ease-out delay-1500 ${
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
-          <div className="w-4 sm:w-6 md:w-8 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+          <div className="w-6 md:w-8 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+        </div>
+      </nav>
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900/95 backdrop-blur-sm shadow-2xl z-50 border-t border-gray-700/50">
+        <div className="flex justify-around items-center py-2 px-4">
+          {navigationItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => navigateToPage(item.id)}
+              className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-300 min-w-0 flex-1 ${
+                currentPage === item.id
+                  ? 'text-blue-400 bg-blue-600/20'
+                  : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+              }`}
+              aria-label={item.label}
+            >
+              <div className={`w-5 h-5 mb-1 transition-all duration-300 ${
+                currentPage === item.id ? 'scale-110' : ''
+              }`}>
+                {item.icon}
+              </div>
+              <span className={`text-xs font-medium transition-all duration-300 ${
+                currentPage === item.id ? 'text-blue-400' : 'text-gray-500'
+              }`}>
+                {item.label}
+              </span>
+            </button>
+          ))}
         </div>
       </nav>
     </>
@@ -165,7 +195,7 @@ const App = () => {
       />
       
       {/* Main Content Area */}
-      <div className="ml-12 sm:ml-14 md:ml-16 lg:ml-20 xl:ml-24">
+      <div className="md:ml-16 lg:ml-20 xl:ml-24 pb-20 md:pb-0">
         {renderCurrentPage()}
       </div>
     </div>
