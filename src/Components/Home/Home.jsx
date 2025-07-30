@@ -147,7 +147,7 @@ const InstagramIcon = () => (
   </svg>
 );
 
-const Home = () => {
+const Home = ({ onPageChange }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showCenter, setShowCenter] = useState(false);
   const [showFinal, setShowFinal] = useState(false);
@@ -241,10 +241,16 @@ const Home = () => {
             <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 lg:pt-4 justify-center lg:justify-start transition-all duration-1000 ${
               !showFinal ? 'scale-75 opacity-0' : 'scale-100 opacity-100'
             }`}>
-              <button className="px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-out">
+              <button 
+                onClick={() => window.open('https://drive.google.com/drive/folders/133Uf1qtOslmKnWt0ZWkmUcnfFFjjkRiD?usp=sharing', '_blank')}
+                className="px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-out"
+              >
                 Download CV
               </button>
-              <button className="px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-out">
+              <button 
+                onClick={() => onPageChange && onPageChange('contact')}
+                className="px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-out"
+              >
                 Hire Me
               </button>
             </div>
@@ -254,7 +260,7 @@ const Home = () => {
               !showFinal ? 'translate-x-0 opacity-0' : 'translate-x-0 opacity-100'
             }`}>
               <div className="text-center hover:scale-110 hover:text-blue-700 transition-all duration-300 cursor-pointer">
-                <div className="text-lg sm:text-xl font-bold text-gray-900">2+</div>
+                <div className="text-lg sm:text-xl font-bold text-gray-900">3+</div>
                 <div className="text-xs">Projects</div>
               </div>
               {/* <div className="text-center hover:scale-110 hover:text-blue-700 transition-all duration-300 cursor-pointer">
