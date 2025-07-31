@@ -256,7 +256,7 @@ const Home = ({ onPageChange }) => {
                 <div className="text-xs">Years Experience</div>
               </div> */}
               <div className="text-center hover:scale-110 hover:text-blue-700 transition-all duration-300 cursor-pointer">
-                <div className="text-lg sm:text-xl font-bold text-gray-900">13+</div>
+                <div className="text-lg sm:text-xl font-bold text-gray-900">11+</div>
                 <div className="text-sm mobile-small-enhanced">Technologies</div>
               </div>
             </div>
