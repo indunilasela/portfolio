@@ -201,7 +201,7 @@ const Education = ({ onPageChange }) => {
                 </div>
               </div>
             </ScrollAnimatedSection>
-                        <ScrollAnimatedSection direction="up" className="pt-4 lg:pt-6">
+                        {/* <ScrollAnimatedSection direction="up" className="pt-4 lg:pt-6">
               <div className="text-center">
                 <button 
                   onClick={() => onPageChange('about')}
@@ -215,7 +215,7 @@ const Education = ({ onPageChange }) => {
                   </span>
                 </button>
               </div>
-            </ScrollAnimatedSection>
+            </ScrollAnimatedSection> */}
 
           </div>
         </div>
