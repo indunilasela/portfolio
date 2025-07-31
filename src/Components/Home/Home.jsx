@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import profile from "../../assets/profile.jpg"; // Adjust the path as necessary
+import profile from "../../assets/profile1.png"; // Adjust the path as necessary
 
 // Note: Import your profile image like this in your actual component:
 // import avatarImg from "../../assets/profile.jpg";
@@ -108,19 +108,7 @@ const TypewriterName = () => {
   );
 };
 
-// Simple rectangular frame component without animations
-const RectangularFrame = ({ children }) => {
-  return (
-    <div className="relative w-full h-full">
-      {/* Profile Image with rectangular border frame */}
-      <div className="relative z-10 w-full h-full p-1 rounded-lg bg-gradient-to-br from-blue-400 via-purple-400 to-pink-500 shadow-2xl">
-        <div className="w-full h-full rounded-lg overflow-hidden">
-          {children}
-        </div>
-      </div>
-    </div>
-  );
-};
+
 
 // Social Media Icons
 const GitHubIcon = () => (
@@ -224,13 +212,13 @@ const Home = ({ onPageChange }) => {
             {/* Description */}
             <div className="space-y-2 lg:space-y-3">
               <p className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-700 leading-relaxed hover:text-gray-900 transition-colors duration-300 mobile-text-enhanced">
-                Undergraduate at the{" "}
+                Third-year IT undergraduate at the{" "}
                 <span className="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300">
                   University of Moratuwa
                 </span>
               </p>
               <p className="text-sm sm:text-sm md:text-sm lg:text-base xl:text-lg text-gray-600 hover:text-gray-800 transition-colors duration-300 mobile-text-enhanced">
-                Faculty of Information Technology
+                Faculty of Information Technology.
               </p>
               <p className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 font-medium hover:text-blue-700 transition-colors duration-300 mobile-text-enhanced">
                 Full-Stack Web Developer
@@ -322,14 +310,13 @@ const Home = ({ onPageChange }) => {
           <div className={`flex-shrink-0 order-1 lg:order-2 transition-all duration-1000 ease-out ${
             !isLoaded ? 'translate-x-full opacity-0' : 'translate-x-0 opacity-100'
           }`}>
-            <div className="w-56 h-64 sm:w-64 sm:h-72 md:w-72 md:h-80 lg:w-80 lg:h-96 xl:w-96 xl:h-[420px] 2xl:w-[420px] 2xl:h-[460px] mx-auto lg:mx-0">
-              <RectangularFrame>
-                <img 
-                  className="w-full h-full object-cover object-center" 
-                  src={avatarImg} 
-                  alt="Indunil Asela - Full Stack Developer" 
-                />
-              </RectangularFrame>
+            <div className="w-72 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[460px] lg:w-[420px] lg:h-[500px] xl:w-[480px] xl:h-[560px] 2xl:w-[520px] 2xl:h-[600px] mx-auto lg:mx-0">
+              <img 
+                className="w-full h-full object-contain object-center" 
+                src={avatarImg} 
+                alt="Indunil Asela - Full Stack Developer"
+                style={{ backgroundColor: 'transparent' }}
+              />
             </div>
           </div>
         </div>

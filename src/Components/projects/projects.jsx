@@ -105,32 +105,32 @@ const ProjectCard = ({ project, index, openProjectId, setOpenProjectId }) => {
           // Project Image View
           <div className="text-center">
             <div 
-              className="w-72 h-48 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg overflow-hidden cursor-pointer"
+              className="w-72 h-56 mx-auto mb-4 bg-white rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-xl overflow-hidden cursor-pointer border-2 border-gray-200 hover:border-blue-400"
               onClick={toggleDetails}
             >
               {project.image === "automeet" ? (
                 <img 
                   src={automeeticon}
                   alt="AutoMeet Project" 
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-contain p-2"
                 />
               ) : project.image === "iot" ? (
                 <img 
                   src={iotimage}
                   alt="Auto-Off Ironboard IoT Project" 
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-contain p-2"
                 />
               ) : project.image === "lakpura" ? (
                 <img 
                   src={lakpuraimage}
                   alt="Lakpura E-commerce Project" 
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-contain p-2"
                 />
               ) : project.image === "portfolio" ? (
                 <img 
                   src={portfolioimage}
                   alt="Portfolio Website Project" 
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-contain p-2"
                 />
               ) : (
                 <span className="text-6xl">{project.image}</span>
