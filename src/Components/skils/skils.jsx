@@ -6,7 +6,7 @@ import pythonImg from "../../assets/python.png";
 import javaImg from "../../assets/java.png";
 import phpImg from "../../assets/php.png";
 import cppImg from "../../assets/c++.png";
-import cImg from "../../assets/c.jpg";
+import cImg from "../../assets/c.png";
 import reactImg from "../../assets/react.png";
 import nextjsImg from "../../assets/nextjs.png";
 import htmlImg from "../../assets/html.png";
