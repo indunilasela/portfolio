@@ -248,7 +248,7 @@ const ContactPage = () => {
           <ScrollAnimatedSection direction="left">
             <div className="space-y-8">
               <div>
-                <h2 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-gray-900 mb-6">Contact Information</h2>
+                <h2 className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-gray-900 mb-6 mobile-subheading-enhanced">Contact Information</h2>
                 
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4 hover:transform hover:scale-105 transition-all duration-300">
@@ -256,8 +256,8 @@ const ContactPage = () => {
                       <EmailIcon />
                     </div>
                     <div>
-                      <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900">Email</h3>
-                      <p className="text-xs sm:text-sm md:text-base text-gray-600 hover:text-blue-600 transition-colors duration-300">i.asela919@gmail.com</p>
+                      <h3 className="text-sm sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900 mobile-subheading-enhanced">Email</h3>
+                      <p className="text-base sm:text-base md:text-base text-gray-600 hover:text-blue-600 transition-colors duration-300 mobile-text-enhanced">i.asela919@gmail.com</p>
                     </div>
                   </div>
                   
@@ -266,8 +266,8 @@ const ContactPage = () => {
                       <PhoneIcon />
                     </div>
                     <div>
-                      <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900">Phone</h3>
-                      <p className="text-xs sm:text-sm md:text-base text-gray-600 hover:text-blue-600 transition-colors duration-300">+94 70 1574865</p>
+                      <h3 className="text-sm sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900 mobile-subheading-enhanced">Phone</h3>
+                      <p className="text-base sm:text-base md:text-base text-gray-600 hover:text-blue-600 transition-colors duration-300 mobile-text-enhanced">+94 70 1574865</p>
                     </div>
                   </div>
                   
@@ -276,15 +276,15 @@ const ContactPage = () => {
                       <LocationIcon />
                     </div>
                     <div>
-                      <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900">Location</h3>
-                      <p className="text-xs sm:text-sm md:text-base text-gray-600 hover:text-blue-600 transition-colors duration-300">Moratuwa, Western Province, Sri Lanka</p>
+                      <h3 className="text-sm sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900 mobile-subheading-enhanced">Location</h3>
+                      <p className="text-base sm:text-base md:text-base text-gray-600 hover:text-blue-600 transition-colors duration-300 mobile-text-enhanced">Moratuwa, Western Province, Sri Lanka</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900 mb-4">Connect With Me</h3>
+                <h3 className="text-sm sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900 mb-4 mobile-subheading-enhanced">Connect With Me</h3>
                 <div className="flex space-x-4">
                   <a href="https://www.linkedin.com/in/indunil-asela/" target="_blank" rel="noopener noreferrer" className="group relative p-3 bg-blue-50 backdrop-blur-sm rounded-full text-gray-600 hover:text-blue-600 hover:bg-blue-100 transform transition-all duration-500 shadow-sm hover:shadow-md border border-blue-200 hover:border-blue-400">
                     <div className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
@@ -318,7 +318,7 @@ const ContactPage = () => {
           {/* Contact Form */}
           <ScrollAnimatedSection direction="right">
             <div className="bg-gray-100/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-300/50">
-              <h2 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-gray-900 mb-6">Send Me a Message</h2>
+              <h2 className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-gray-900 mb-6 mobile-subheading-enhanced">Send Me a Message</h2>
               
               {submitStatus === 'sending' && (
                 <div className="mb-6 p-4 bg-blue-50 border border-blue-300 text-blue-800 rounded-lg">
@@ -340,7 +340,7 @@ const ContactPage = () => {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm sm:text-sm font-medium text-gray-700 mb-2 mobile-small-enhanced">
                     Your Name
                   </label>
                   <input
@@ -350,13 +350,13 @@ const ContactPage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-xs sm:text-sm md:text-base"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-base sm:text-base md:text-base mobile-text-enhanced"
                     placeholder="Enter your full name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm sm:text-sm font-medium text-gray-700 mb-2 mobile-small-enhanced">
                     Email Address
                   </label>
                   <input
@@ -366,13 +366,13 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-xs sm:text-sm md:text-base"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-base sm:text-base md:text-base mobile-text-enhanced"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm sm:text-sm font-medium text-gray-700 mb-2 mobile-small-enhanced">
                     Subject
                   </label>
                   <input
@@ -382,13 +382,13 @@ const ContactPage = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-xs sm:text-sm md:text-base"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-base sm:text-base md:text-base mobile-text-enhanced"
                     placeholder="What's this about?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm sm:text-sm font-medium text-gray-700 mb-2 mobile-small-enhanced">
                     Message
                   </label>
                   <textarea
@@ -398,7 +398,7 @@ const ContactPage = () => {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical placeholder-gray-500 text-xs sm:text-sm md:text-base"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical placeholder-gray-500 text-base sm:text-base md:text-base mobile-text-enhanced"
                     placeholder="Tell me about your project or just say hello..."
                   ></textarea>
                 </div>
@@ -406,7 +406,7 @@ const ContactPage = () => {
                 <button
                   type="submit"
                   disabled={submitStatus === 'sending'}
-                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2 text-xs sm:text-sm md:text-base transform hover:scale-105 disabled:transform-none"
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2 text-base sm:text-base md:text-base transform hover:scale-105 disabled:transform-none mobile-text-enhanced"
                 >
                   {submitStatus === 'sending' ? (
                     <>

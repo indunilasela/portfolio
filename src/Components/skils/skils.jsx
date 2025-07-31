@@ -267,7 +267,7 @@ const Skills = ({ onPageChange }) => {
                           alt={skill.name}
                           className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 mx-auto mb-2 sm:mb-3 object-contain"
                         />
-                        <span className="text-xs sm:text-sm md:text-base text-blue-600 hover:text-blue-800 transition-colors duration-300 block font-medium">
+                        <span className="text-sm sm:text-sm md:text-base text-blue-600 hover:text-blue-800 transition-colors duration-300 block font-medium mobile-small-enhanced">
                           {skill.name}
                         </span>
                       </div>

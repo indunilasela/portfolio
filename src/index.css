@@ -5,3 +5,53 @@
 * {
   scroll-behavior: smooth;
 }
+
+/* Mobile text size enhancements - matching project details readability */
+@media (max-width: 767px) {
+  .mobile-text-enhanced {
+    font-size: 1rem !important; /* 16px - same as text-base */
+    line-height: 1.6 !important;
+  }
+  
+  .mobile-heading-enhanced {
+    font-size: 1.25rem !important; /* 20px - same as text-xl */
+    line-height: 1.4 !important;
+  }
+  
+  .mobile-subheading-enhanced {
+    font-size: 1.125rem !important; /* 18px - same as text-lg */
+    line-height: 1.5 !important;
+  }
+  
+  .mobile-small-enhanced {
+    font-size: 0.875rem !important; /* 14px - same as text-sm */
+    line-height: 1.5 !important;
+  }
+}
+
+/* Swipe gesture enhancements */
+@layer utilities {
+  .swipe-container {
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .swipe-hint {
+    animation: swipeHint 2s ease-in-out infinite;
+  }
+  
+  @keyframes swipeHint {
+    0%, 100% { 
+      transform: translateX(0); 
+      opacity: 0.7; 
+    }
+    50% { 
+      transform: translateX(10px); 
+      opacity: 1; 
+    }
+  }
+  
+  .page-transition {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

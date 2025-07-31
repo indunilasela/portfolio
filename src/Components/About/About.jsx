@@ -118,7 +118,7 @@ const About = ({ onPageChange }) => {
             <ScrollAnimatedSection direction="left">
               <div className="bg-gray-100/80 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-gray-300/50 hover:border-blue-400/50 transition-all duration-300 shadow-lg">
                 
-                <p className="text-sm sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300">
+                <p className="text-base sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mobile-text-enhanced">
                   I am a third-year undergraduate at the University of Moratuwa, Faculty of Information Technology. 
                   A passionate full-stack web developer and aspiring financial technologist. Skilled in modern web technologies including 
                   C, C++, CSS, PHP, Python, Tailwind CSS, Bootstrap, JavaScript, Node.js, Ballerina, MySQL, MongoDB, and React.
@@ -129,7 +129,7 @@ const About = ({ onPageChange }) => {
             {/* Introduction Paragraph 2 */}
             <ScrollAnimatedSection direction="right">
               <div className="bg-gray-100/80 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-gray-300/50 hover:border-blue-400/50 transition-all duration-300 shadow-lg">
-                <p className="text-sm sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300">
+                <p className="text-base sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mobile-text-enhanced">
                   I enjoy building complete web applications from intuitive front-end interfaces to 
                   efficient back-end systems. I'm also deeply interested in how technology intersects with finance 
                   and constantly explore ways to create value through innovative, impactful software solutions.
@@ -139,14 +139,14 @@ const About = ({ onPageChange }) => {
             
             {/* Quick Stats */}
             <ScrollAnimatedSection direction="up" className="mt-8 lg:mt-12">
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-xs text-gray-600">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-600 mobile-small-enhanced">
                 <div className="text-center hover:scale-110 hover:text-blue-600 transition-all duration-300 cursor-pointer">
                   <div className="text-lg sm:text-xl font-bold text-gray-900">3rd</div>
-                  <div className="text-xs">Year Student</div>
+                  <div className="text-sm mobile-small-enhanced">Year Student</div>
                 </div>
                 <div className="text-center hover:scale-110 hover:text-blue-600 transition-all duration-300 cursor-pointer">
                   <div className="text-lg sm:text-xl font-bold text-gray-900">13+</div>
-                  <div className="text-xs">Technologies</div>
+                  <div className="text-sm mobile-small-enhanced">Technologies</div>
                 </div>
                 <div className="text-center hover:scale-110 hover:text-blue-600 transition-all duration-300 cursor-pointer">
                   <div className="text-lg sm:text-xl font-bold text-gray-900">Full</div>

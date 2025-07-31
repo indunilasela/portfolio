@@ -223,16 +223,16 @@ const Home = ({ onPageChange }) => {
             
             {/* Description */}
             <div className="space-y-2 lg:space-y-3">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-700 leading-relaxed hover:text-gray-900 transition-colors duration-300">
+              <p className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-700 leading-relaxed hover:text-gray-900 transition-colors duration-300 mobile-text-enhanced">
                 Undergraduate at the{" "}
                 <span className="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300">
                   University of Moratuwa
                 </span>
               </p>
-              <p className="text-xs sm:text-sm md:text-sm lg:text-base xl:text-lg text-gray-600 hover:text-gray-800 transition-colors duration-300">
+              <p className="text-sm sm:text-sm md:text-sm lg:text-base xl:text-lg text-gray-600 hover:text-gray-800 transition-colors duration-300 mobile-text-enhanced">
                 Faculty of Information Technology
               </p>
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 font-medium hover:text-blue-700 transition-colors duration-300">
+              <p className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 font-medium hover:text-blue-700 transition-colors duration-300 mobile-text-enhanced">
                 Full-Stack Web Developer
               </p>
             </div>
@@ -256,12 +256,12 @@ const Home = ({ onPageChange }) => {
             </div>
             
             {/* Stats Section - Slides in from left */}
-            <div className={`flex flex-wrap justify-center lg:justify-start gap-4 pt-4 lg:pt-6 text-xs text-gray-600 transition-all duration-1000 ${
+            <div className={`flex flex-wrap justify-center lg:justify-start gap-4 pt-4 lg:pt-6 text-sm text-gray-600 transition-all duration-1000 mobile-small-enhanced ${
               !showFinal ? 'translate-x-0 opacity-0' : 'translate-x-0 opacity-100'
             }`}>
               <div className="text-center hover:scale-110 hover:text-blue-700 transition-all duration-300 cursor-pointer">
                 <div className="text-lg sm:text-xl font-bold text-gray-900">3+</div>
-                <div className="text-xs">Projects</div>
+                <div className="text-sm mobile-small-enhanced">Projects</div>
               </div>
               {/* <div className="text-center hover:scale-110 hover:text-blue-700 transition-all duration-300 cursor-pointer">
                 <div className="text-lg sm:text-xl font-bold text-gray-900">3+</div>
@@ -269,7 +269,7 @@ const Home = ({ onPageChange }) => {
               </div> */}
               <div className="text-center hover:scale-110 hover:text-blue-700 transition-all duration-300 cursor-pointer">
                 <div className="text-lg sm:text-xl font-bold text-gray-900">13+</div>
-                <div className="text-xs">Technologies</div>
+                <div className="text-sm mobile-small-enhanced">Technologies</div>
               </div>
             </div>
 

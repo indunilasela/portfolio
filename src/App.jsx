@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Import your page components (these would be your actual imports)
 import Home from './Components/Home/Home';
@@ -165,6 +165,106 @@ const VerticalNavbar = ({ currentPage, onPageChange }) => {
 // Main App Component
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
+  const swipeContainerRef = useRef(null);
+
+  // Define the page order for swipe navigation
+  const pageOrder = ['home', 'about', 'education', 'skills', 'projects', 'contact'];
+
+  // Hide swipe hint after first interaction
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSwipeHint(false);
+    }, 5000); // Hide after 5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Swipe navigation functions
+  const goToNextPage = () => {
+    const currentIndex = pageOrder.indexOf(currentPage);
+    if (currentIndex < pageOrder.length - 1) {
+      setCurrentPage(pageOrder[currentIndex + 1]);
+      setShowSwipeHint(false); // Hide hint after first swipe
+    }
+  };
+
+  const goToPreviousPage = () => {
+    const currentIndex = pageOrder.indexOf(currentPage);
+    if (currentIndex > 0) {
+      setCurrentPage(pageOrder[currentIndex - 1]);
+      setShowSwipeHint(false); // Hide hint after first swipe
+    }
+  };
+
+  // Touch event handlers for swipe detection
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchMove = (e) => {
+    // Prevent default scrolling behavior during horizontal swipes
+    if (!touchStartX.current || !touchStartY.current) return;
+
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+    
+    const diffX = touchStartX.current - currentX;
+    const diffY = touchStartY.current - currentY;
+
+    // If horizontal swipe is more significant than vertical, prevent default
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+      e.preventDefault();
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!touchStartX.current || !touchStartY.current) return;
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    
+    const diffX = touchStartX.current - touchEndX;
+    const diffY = touchStartY.current - touchEndY;
+
+    // Minimum swipe distance
+    const minSwipeDistance = 50;
+    
+    // Check if horizontal swipe is more significant than vertical
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > minSwipeDistance) {
+      if (diffX > 0) {
+        // Swiped left - go to next page
+        goToNextPage();
+      } else {
+        // Swiped right - go to previous page
+        goToPreviousPage();
+      }
+    }
+
+    // Reset touch coordinates
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
+  // Add touch event listeners
+  useEffect(() => {
+    const container = swipeContainerRef.current;
+    if (!container) return;
+
+    // Add passive: false to allow preventDefault
+    container.addEventListener('touchstart', handleTouchStart, { passive: true });
+    container.addEventListener('touchmove', handleTouchMove, { passive: false });
+    container.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    return () => {
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [currentPage]); // Re-add listeners when page changes
 
   // Function to render the current page
   const renderCurrentPage = () => {
@@ -194,9 +294,45 @@ const App = () => {
         onPageChange={setCurrentPage} 
       />
       
-      {/* Main Content Area */}
-      <div className="md:ml-16 lg:ml-20 xl:ml-24 pb-20 md:pb-0">
+      {/* Main Content Area with Swipe Detection */}
+      <div 
+        ref={swipeContainerRef}
+        className="md:ml-16 lg:ml-20 xl:ml-24 pb-20 md:pb-0 relative swipe-container"
+        style={{ touchAction: 'pan-y' }} // Allow vertical scrolling but enable horizontal swipe detection
+      >
         {renderCurrentPage()}
+        
+        {/* Swipe Indicators for Mobile */}
+        <div className="md:hidden fixed bottom-24 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
+          {pageOrder.map((page, index) => (
+            <div
+              key={page}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentPage === page 
+                  ? 'bg-blue-400 scale-125' 
+                  : 'bg-gray-500/50'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Swipe Hint for Mobile - Only show initially
+        {showSwipeHint && (
+          <div className="md:hidden fixed top-1/2 left-4 transform -translate-y-1/2 z-30 animate-pulse">
+            <div className="bg-black/70 text-white px-3 py-2 rounded-lg text-sm flex items-center space-x-2">
+              <span>Swipe to navigate</span>
+              <div className="flex space-x-1">
+                <div className="w-2 h-2 bg-white rounded-full swipe-hint"></div>
+                <div className="w-2 h-2 bg-white rounded-full swipe-hint" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-2 h-2 bg-white rounded-full swipe-hint" style={{ animationDelay: '0.4s' }}></div>
+              </div>
+            </div>
+          </div>
+        )} */}
+
+        {/* Page Navigation Edges for Visual Feedback */}
+        <div className="md:hidden fixed top-0 left-0 w-4 h-full z-20 bg-gradient-to-r from-blue-500/10 to-transparent pointer-events-none opacity-0 transition-opacity duration-300" id="left-edge"></div>
+        <div className="md:hidden fixed top-0 right-0 w-4 h-full z-20 bg-gradient-to-l from-blue-500/10 to-transparent pointer-events-none opacity-0 transition-opacity duration-300" id="right-edge"></div>
       </div>
     </div>
   );

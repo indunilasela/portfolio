@@ -105,7 +105,7 @@ const ProjectCard = ({ project, index, openProjectId, setOpenProjectId }) => {
           // Project Image View
           <div className="text-center">
             <div 
-              className="w-60 h-48 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg overflow-hidden cursor-pointer"
+              className="w-72 h-48 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg overflow-hidden cursor-pointer"
               onClick={toggleDetails}
             >
               {project.image === "automeet" ? (

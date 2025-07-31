@@ -114,13 +114,13 @@ const Education = ({ onPageChange }) => {
             {/* Current Education */}
             <ScrollAnimatedSection direction="left">
               <div className="bg-gray-100/80 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-gray-300/50 hover:border-blue-400/50 transition-all duration-300 shadow-lg">
-                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3 lg:mb-4">
+                <h3 className="text-lg sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3 lg:mb-4 mobile-subheading-enhanced">
                   Bachelor of Science in Information Technology
                 </h3>
-                <p className="text-sm sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mb-2">
+                <p className="text-base sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mb-2 mobile-text-enhanced">
                   University of Moratuwa, Faculty of Information Technology
                 </p>
-                <p className="text-xs sm:text-sm text-gray-600 mb-3">
+                <p className="text-sm sm:text-sm text-gray-600 mb-3 mobile-small-enhanced">
                   2022 - Present | Currently in 3rd year, specializing in software engineering and web development
                 </p>
                 <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-1">
@@ -130,7 +130,7 @@ const Education = ({ onPageChange }) => {
                       className="text-center p-1 bg-gray-200/60 rounded hover:bg-blue-100/80 hover:scale-105 transition-all duration-300 shadow-sm"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <span className="text-xs text-gray-700 hover:text-gray-900 transition-colors duration-300">
+                      <span className="text-sm text-gray-700 hover:text-gray-900 transition-colors duration-300 mobile-small-enhanced">
                         {subject}
                       </span>
                     </div>
@@ -142,11 +142,11 @@ const Education = ({ onPageChange }) => {
 
             <ScrollAnimatedSection direction="right">
               <div className="bg-gray-100/80 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-gray-300/50 hover:border-blue-400/50 transition-all duration-300 shadow-lg">
-                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3 lg:mb-4">
+                <h3 className="text-lg sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3 lg:mb-4 mobile-subheading-enhanced">
                   Intermediate English Course - Batch 78
                 </h3>
-                <p className="text-sm sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mb-2">
-                  Keirawa British Way English Academy
+                <p className="text-base sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mb-2 mobile-text-enhanced">
+                  Kekirawa British Way English Academy
                 </p>
                 <p className="text-xs sm:text-sm text-gray-600 mb-3">
                   2022 | Completed a comprehensive English language program covering all fundamental skills
@@ -214,21 +214,7 @@ const Education = ({ onPageChange }) => {
                 </div>
               </div>
             </ScrollAnimatedSection>
-                        <ScrollAnimatedSection direction="up" className="pt-4 lg:pt-6">
-              <div className="text-center">
-                <button 
-                  onClick={() => onPageChange('about')}
-                  className="group px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-out"
-                >
-                  <span className="flex items-center gap-2">
-                    <svg className="w-3 h-3 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                    Back to About
-                  </span>
-                </button>
-              </div>
-            </ScrollAnimatedSection>
+                       
 
           </div>
         </div>
