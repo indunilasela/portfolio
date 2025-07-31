@@ -84,7 +84,6 @@ const ScrollAnimatedSection = ({ children, direction = "left", className = "" })
 
 const Education = ({ onPageChange }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [showAllCourses, setShowAllCourses] = useState(false);
   
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -93,37 +92,6 @@ const Education = ({ onPageChange }) => {
     
     return () => clearTimeout(timer);
   }, []);
-
-  const allCourses = [
-    'OOP', 
-    'Web Development', 
-    'Database Systems', 
-    'Data Structures', 
-    'Software Engineering',
-    'Fundamentals of Mathematics',
-    'Programming Fundamentals', 
-    'Digital System Design',
-    'Computer Organization',
-    'Multimedia Technologies',
-    'English',
-    'Fundamentals of Business Economics',
-    'Microcontroller Based Application Development Project',
-    'Elements of Probability and Statistics',
-    'Fundamentals of Databases',
-    'Data Communication',
-    'Principles of Management',
-    'Essentials of Mathematical Methods',
-    'Data Structures and Algorithms II',
-    'Object-Oriented Analysis and Design',
-    'Operating System',
-    'Computer Architecture',
-    'Software Development Project',
-    'Statistical Inference',
-    'Computer Networks',
-    'Computer Graphics'
-  ];
-
-  const displayedCourses = showAllCourses ? allCourses : allCourses.slice(0, 5);
 
   return (
     <div className="text-gray-800 bg-gradient-to-r from-white to-blue-200 min-h-screen">
@@ -155,11 +123,11 @@ const Education = ({ onPageChange }) => {
                 <p className="text-xs sm:text-sm text-gray-600 mb-3">
                   2022 - Present | Currently in 3rd year, specializing in software engineering and web development
                 </p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-                  {displayedCourses.map((subject, index) => (
+                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-1">
+                  {['OOP', 'Web Development', 'Database Systems', 'Data Structures', 'Software Engineering'].map((subject, index) => (
                     <div 
                       key={subject}
-                      className="text-center p-2 bg-gray-200/60 rounded hover:bg-blue-100/80 hover:scale-105 transition-all duration-300 shadow-sm"
+                      className="text-center p-1 bg-gray-200/60 rounded hover:bg-blue-100/80 hover:scale-105 transition-all duration-300 shadow-sm"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <span className="text-xs text-gray-700 hover:text-gray-900 transition-colors duration-300">
@@ -167,26 +135,6 @@ const Education = ({ onPageChange }) => {
                       </span>
                     </div>
                   ))}
-                  {!showAllCourses && (
-                    <div className="text-center p-2">
-                      <button
-                        onClick={() => setShowAllCourses(true)}
-                        className="px-4 py-2 border border-gray-300 text-gray-700 text-sm rounded-lg transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg font-medium hover:border-gray-400"
-                      >
-                        Show More
-                      </button>
-                    </div>
-                  )}
-                  {showAllCourses && (
-                    <div className="text-center p-2">
-                      <button
-                        onClick={() => setShowAllCourses(false)}
-                        className="px-4 py-2 border border-gray-300 text-gray-700 text-sm rounded-lg transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg font-medium hover:border-gray-400"
-                      >
-                        Show Less
-                      </button>
-                    </div>
-                  )}
                 </div>
               </div>
             </ScrollAnimatedSection>
@@ -203,19 +151,6 @@ const Education = ({ onPageChange }) => {
                 <p className="text-xs sm:text-sm text-gray-600 mb-3">
                   2022 | Completed a comprehensive English language program covering all fundamental skills
                 </p>
-                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-1">
-                  {['Grammar', 'Speaking', 'Listening', 'Reading', 'Writing'].map((skill, index) => (
-                    <div 
-                      key={skill}
-                      className="text-center p-1 bg-gray-200/60 rounded hover:bg-blue-100/80 hover:scale-105 transition-all duration-300 shadow-sm"
-                      style={{ animationDelay: `${index * 100}ms` }}
-                    >
-                      <span className="text-xs text-gray-700 hover:text-gray-900 transition-colors duration-300">
-                        {skill}
-                      </span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </ScrollAnimatedSection>            <ScrollAnimatedSection direction="left">
               <div className="bg-gray-100/80 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-gray-300/50 hover:border-blue-400/50 transition-all duration-300 shadow-lg">
