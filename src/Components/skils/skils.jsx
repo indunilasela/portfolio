@@ -1,5 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
 
+// Import all skill images
+import javascriptImg from "../../assets/javascript.png";
+import pythonImg from "../../assets/python.png";
+import javaImg from "../../assets/java.png";
+import phpImg from "../../assets/php.png";
+import cppImg from "../../assets/c++.png";
+import cImg from "../../assets/c.jpg";
+import reactImg from "../../assets/react.png";
+import nextjsImg from "../../assets/nextjs.png";
+import htmlImg from "../../assets/html.png";
+import cssImg from "../../assets/css.png";
+import tailwindImg from "../../assets/talwindcss.png";
+import bootstrapImg from "../../assets/bootstrap.png";
+import nodejsImg from "../../assets/nodejs.png";
+import ballerinaImg from "../../assets/ballerina.jpeg";
+import mysqlImg from "../../assets/mysql.png";
+import mongodbImg from "../../assets/mongodb.png";
+import leadershipImg from "../../assets/leadership.jpeg";
+import communicationImg from "../../assets/communication.jpeg";
+import teamworkImg from "../../assets/teamwork.jpeg";
+import timemanagementImg from "../../assets/timemanagement.jpeg";
+
 // Typewriter effect for Skills heading
 const TypewriterSkills = () => {
   const [displayText, setDisplayText] = useState("");
@@ -128,12 +150,12 @@ const Skills = ({ onPageChange }) => {
       icon: "💻",
       color: "blue",
       skills: [
-        { name: "JavaScript", level: 90, image: "/src/assets/javascript.png" },
-        { name: "Python", level: 80, image: "/src/assets/python.png" },
-        { name: "Java", level: 75, image: "/src/assets/java.png" },
-        { name: "PHP", level: 70, image: "/src/assets/php.png" },
-        { name: "C++", level: 75, image: "/src/assets/c++.png" },
-        { name: "C", level: 70, image: "/src/assets/c.jpg" }
+        { name: "JavaScript", level: 90, image: javascriptImg },
+        { name: "Python", level: 80, image: pythonImg },
+        { name: "Java", level: 75, image: javaImg },
+        { name: "PHP", level: 70, image: phpImg },
+        { name: "C++", level: 75, image: cppImg },
+        { name: "C", level: 70, image: cImg }
       ]
     },
     frontend: {
@@ -141,12 +163,12 @@ const Skills = ({ onPageChange }) => {
       icon: "🎨",
       color: "green",
       skills: [
-        { name: "React", level: 90, image: "/src/assets/react.png" },
-        { name: "Next.js", level: 85, image: "/src/assets/nextjs.png" },
-        { name: "HTML5", level: 95, image: "/src/assets/html.png" },
-        { name: "CSS3", level: 90, image: "/src/assets/css.png" },
-        { name: "Tailwind CSS", level: 90, image: "/src/assets/talwindcss.png" },
-        { name: "Bootstrap", level: 85, image: "/src/assets/bootstrap.png" }
+        { name: "React", level: 90, image: reactImg },
+        { name: "Next.js", level: 85, image: nextjsImg },
+        { name: "HTML5", level: 95, image: htmlImg },
+        { name: "CSS3", level: 90, image: cssImg },
+        { name: "Tailwind CSS", level: 90, image: tailwindImg },
+        { name: "Bootstrap", level: 85, image: bootstrapImg }
       ]
     },
     backend: {
@@ -154,8 +176,8 @@ const Skills = ({ onPageChange }) => {
       icon: "⚙️",
       color: "purple",
       skills: [
-        { name: "Node.js", level: 85, image: "/src/assets/nodejs.png" },
-        { name: "Ballerina", level: 70, image: "/src/assets/ballerina.jpeg" }
+        { name: "Node.js", level: 85, image: nodejsImg },
+        { name: "Ballerina", level: 70, image: ballerinaImg }
       ]
     },
     database: {
@@ -163,8 +185,8 @@ const Skills = ({ onPageChange }) => {
       icon: "🗄️",
       color: "yellow",
       skills: [
-        { name: "MySQL", level: 85, image: "/src/assets/mysql.png" },
-        { name: "MongoDB", level: 80, image: "/src/assets/mongodb.png" }
+        { name: "MySQL", level: 85, image: mysqlImg },
+        { name: "MongoDB", level: 80, image: mongodbImg }
       ]
     }
   };
@@ -265,10 +287,10 @@ const Skills = ({ onPageChange }) => {
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-4xl mx-auto">
                   {[
-                    { name: "Leadership", image: "/src/assets/leadership.jpeg" },
-                    { name: "Communication", image: "/src/assets/communication.jpeg" },
-                    { name: "Team Work", image: "/src/assets/teamwork.jpeg" },
-                    { name: "Time Management", image: "/src/assets/timemanagement.jpeg" },
+                    { name: "Leadership", image: leadershipImg },
+                    { name: "Communication", image: communicationImg },
+                    { name: "Team Work", image: teamworkImg },
+                    { name: "Time Management", image: timemanagementImg },
                   ].map((skill, index) => (
                     <div 
                       key={skill.name}
