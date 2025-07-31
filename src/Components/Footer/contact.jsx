@@ -322,13 +322,16 @@ const ContactPage = () => {
               
               {submitStatus === 'sending' && (
                 <div className="mb-6 p-4 bg-blue-50 border border-blue-300 text-blue-800 rounded-lg">
-                  <p className="font-semibold text-center">Sending email... </p>
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-800"></div>
+                    <p className="font-semibold">Processing...</p>
+                  </div>
                 </div>
               )}
 
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-300 text-green-800 rounded-lg">
-                  <p className="font-semibold text-center">Email sent successfully! </p>
+                  <p className="font-semibold text-center">successfully</p>
                 </div>
               )}
 

@@ -84,6 +84,7 @@ const ScrollAnimatedSection = ({ children, direction = "left", className = "" })
 
 const Education = ({ onPageChange }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showAllCourses, setShowAllCourses] = useState(false);
   
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -92,6 +93,37 @@ const Education = ({ onPageChange }) => {
     
     return () => clearTimeout(timer);
   }, []);
+
+  const allCourses = [
+    'OOP', 
+    'Web Development', 
+    'Database Systems', 
+    'Data Structures', 
+    'Software Engineering',
+    'Fundamentals of Mathematics',
+    'Programming Fundamentals', 
+    'Digital System Design',
+    'Computer Organization',
+    'Multimedia Technologies',
+    'English',
+    'Fundamentals of Business Economics',
+    'Microcontroller Based Application Development Project',
+    'Elements of Probability and Statistics',
+    'Fundamentals of Databases',
+    'Data Communication',
+    'Principles of Management',
+    'Essentials of Mathematical Methods',
+    'Data Structures and Algorithms II',
+    'Object-Oriented Analysis and Design',
+    'Operating System',
+    'Computer Architecture',
+    'Software Development Project',
+    'Statistical Inference',
+    'Computer Networks',
+    'Computer Graphics'
+  ];
+
+  const displayedCourses = showAllCourses ? allCourses : allCourses.slice(0, 5);
 
   return (
     <div className="text-gray-800 bg-gradient-to-r from-white to-blue-200 min-h-screen">
@@ -114,27 +146,47 @@ const Education = ({ onPageChange }) => {
             {/* Current Education */}
             <ScrollAnimatedSection direction="left">
               <div className="bg-gray-100/80 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-gray-300/50 hover:border-blue-400/50 transition-all duration-300 shadow-lg">
-                <h3 className="text-lg sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3 lg:mb-4 mobile-subheading-enhanced">
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3 lg:mb-4">
                   Bachelor of Science in Information Technology
                 </h3>
-                <p className="text-base sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mb-2 mobile-text-enhanced">
+                <p className="text-sm sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mb-2">
                   University of Moratuwa, Faculty of Information Technology
                 </p>
-                <p className="text-sm sm:text-sm text-gray-600 mb-3 mobile-small-enhanced">
+                <p className="text-xs sm:text-sm text-gray-600 mb-3">
                   2022 - Present | Currently in 3rd year, specializing in software engineering and web development
                 </p>
-                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-1">
-                  {['OOP', 'Web Development', 'Database Systems', 'Data Structures', 'Software Engineering', 'etc...'].map((subject, index) => (
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+                  {displayedCourses.map((subject, index) => (
                     <div 
                       key={subject}
-                      className="text-center p-1 bg-gray-200/60 rounded hover:bg-blue-100/80 hover:scale-105 transition-all duration-300 shadow-sm"
+                      className="text-center p-2 bg-gray-200/60 rounded hover:bg-blue-100/80 hover:scale-105 transition-all duration-300 shadow-sm"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <span className="text-sm text-gray-700 hover:text-gray-900 transition-colors duration-300 mobile-small-enhanced">
+                      <span className="text-xs text-gray-700 hover:text-gray-900 transition-colors duration-300">
                         {subject}
                       </span>
                     </div>
                   ))}
+                  {!showAllCourses && (
+                    <div className="text-center p-2">
+                      <button
+                        onClick={() => setShowAllCourses(true)}
+                        className="px-4 py-2 border border-gray-300 text-gray-700 text-sm rounded-lg transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg font-medium hover:border-gray-400"
+                      >
+                        Show More
+                      </button>
+                    </div>
+                  )}
+                  {showAllCourses && (
+                    <div className="text-center p-2">
+                      <button
+                        onClick={() => setShowAllCourses(false)}
+                        className="px-4 py-2 border border-gray-300 text-gray-700 text-sm rounded-lg transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg font-medium hover:border-gray-400"
+                      >
+                        Show Less
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </ScrollAnimatedSection>
@@ -142,10 +194,10 @@ const Education = ({ onPageChange }) => {
 
             <ScrollAnimatedSection direction="right">
               <div className="bg-gray-100/80 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-gray-300/50 hover:border-blue-400/50 transition-all duration-300 shadow-lg">
-                <h3 className="text-lg sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3 lg:mb-4 mobile-subheading-enhanced">
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3 lg:mb-4">
                   Intermediate English Course - Batch 78
                 </h3>
-                <p className="text-base sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mb-2 mobile-text-enhanced">
+                <p className="text-sm sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mb-2">
                   Kekirawa British Way English Academy
                 </p>
                 <p className="text-xs sm:text-sm text-gray-600 mb-3">
@@ -214,7 +266,21 @@ const Education = ({ onPageChange }) => {
                 </div>
               </div>
             </ScrollAnimatedSection>
-                       
+                        <ScrollAnimatedSection direction="up" className="pt-4 lg:pt-6">
+              <div className="text-center">
+                <button 
+                  onClick={() => onPageChange('about')}
+                  className="group px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 ease-out"
+                >
+                  <span className="flex items-center gap-2">
+                    <svg className="w-3 h-3 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Back to About
+                  </span>
+                </button>
+              </div>
+            </ScrollAnimatedSection>
 
           </div>
         </div>
