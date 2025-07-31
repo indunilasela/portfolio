@@ -121,7 +121,7 @@ const About = ({ onPageChange }) => {
                 <p className="text-base sm:text-base md:text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300 mobile-text-enhanced">
                   I am a third-year undergraduate at the University of Moratuwa, Faculty of Information Technology. 
                   A passionate full-stack web developer and aspiring financial technologist. Skilled in modern web technologies including 
-                  C, C++, CSS, PHP, Python, Tailwind CSS, Bootstrap, JavaScript, Node.js, Ballerina, MySQL, MongoDB, and React.
+                  C, C++, CSS, Python, Tailwind CSS, Bootstrap, JavaScript, Node.js, Ballerina, MySQL, MongoDB, and React.
                 </p>
               </div>
             </ScrollAnimatedSection>
@@ -141,11 +141,11 @@ const About = ({ onPageChange }) => {
             <ScrollAnimatedSection direction="up" className="mt-8 lg:mt-12">
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-600 mobile-small-enhanced">
                 <div className="text-center hover:scale-110 hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                  <div className="text-lg sm:text-xl font-bold text-gray-900">3rd</div>
+                  <div className="text-lg sm:text-xl font-bold text-gray-900">3<sup class="text-xs align-super">rd</sup></div>
                   <div className="text-sm mobile-small-enhanced">Year Student</div>
                 </div>
                 <div className="text-center hover:scale-110 hover:text-blue-600 transition-all duration-300 cursor-pointer">
-                  <div className="text-lg sm:text-xl font-bold text-gray-900">13+</div>
+                  <div className="text-lg sm:text-xl font-bold text-gray-900">11+</div>
                   <div className="text-sm mobile-small-enhanced">Technologies</div>
                 </div>
                 <div className="text-center hover:scale-110 hover:text-blue-600 transition-all duration-300 cursor-pointer">
@@ -163,7 +163,7 @@ const About = ({ onPageChange }) => {
                   Technology Stack
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-3">
-                  {['C', 'C++', 'CSS', 'PHP', 'Python', 'Tailwind CSS', 'Bootstrap', 'JavaScript', 'Node.js', 'Ballerina', 'MySQL', 'MongoDB', 'React'].map((tech, index) => (
+                  {['C', 'C++', 'CSS', 'Python', 'Tailwind CSS', 'Bootstrap', 'JavaScript', 'Node.js', 'Ballerina', 'MySQL', 'MongoDB', 'React'].map((tech, index) => (
                     <div 
                       key={tech}
                       className="text-center p-3 lg:p-4 bg-gray-200/60 rounded-lg hover:bg-blue-100/80 hover:scale-105 transition-all duration-300 shadow-sm"

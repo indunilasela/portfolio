@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import javascriptImg from "../../assets/javascript.png";
 import pythonImg from "../../assets/python.png";
 import javaImg from "../../assets/java.png";
-import phpImg from "../../assets/php.png";
+//import phpImg from "../../assets/php.png";
 import cppImg from "../../assets/c++.png";
 import cImg from "../../assets/c.png";
 import reactImg from "../../assets/react.png";
@@ -150,12 +150,14 @@ const Skills = ({ onPageChange }) => {
       icon: "💻",
       color: "blue",
       skills: [
+                { name: "C", level: 70, image: cImg },
+{ name: "C++", level: 75, image: cppImg },
+{ name: "Java", level: 75, image: javaImg },
         { name: "JavaScript", level: 90, image: javascriptImg },
-        { name: "Python", level: 80, image: pythonImg },
-        { name: "Java", level: 75, image: javaImg },
-        { name: "PHP", level: 70, image: phpImg },
-        { name: "C++", level: 75, image: cppImg },
-        { name: "C", level: 70, image: cImg }
+        { name: "Python", level: 80, image: pythonImg }
+        
+       // { name: "PHP", level: 70, image: phpImg },
+        
       ]
     },
     frontend: {
@@ -237,9 +239,6 @@ const Skills = ({ onPageChange }) => {
                     <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold leading-tight">
                       {category.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2">
-                      {category.skills.length} Skills
-                    </p>
                   </div>
                 </button>
               ))}
@@ -281,8 +280,8 @@ const Skills = ({ onPageChange }) => {
           {/* Soft Skills */}
           <ScrollAnimatedSection direction="up" className="mt-8 lg:mt-12">
             <div className="max-w-7xl mx-auto px-4">
-              <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8 border border-gray-700/50 hover:border-yellow-400/50 transition-all duration-300">
-                <h3 className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-4 sm:mb-6 lg:mb-8">
+              <div className="bg-gray-100/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8 border border-gray-300/50 hover:border-blue-400/50 transition-all duration-300 shadow-lg">
+                <h3 className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-black mb-4 sm:mb-6 lg:mb-8">
                   Soft Skills
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-4xl mx-auto">
@@ -294,7 +293,7 @@ const Skills = ({ onPageChange }) => {
                   ].map((skill, index) => (
                     <div 
                       key={skill.name}
-                      className="text-center p-3 sm:p-4 lg:p-6 bg-gray-700/30 rounded-lg hover:bg-blue-600/20 hover:scale-105 transition-all duration-300"
+                      className="text-center p-3 sm:p-4 lg:p-6 bg-white/70 rounded-lg hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-sm border border-gray-200/50"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <img 
@@ -316,7 +315,7 @@ const Skills = ({ onPageChange }) => {
                           e.target.parentNode.insertBefore(fallbackDiv, e.target);
                         }}
                       />
-                      <span className="text-xs sm:text-sm md:text-base text-gray-300 hover:text-white transition-colors duration-300 block font-medium">
+                      <span className="text-xs sm:text-sm md:text-base text-gray-700 hover:text-blue-600 transition-colors duration-300 block font-medium">
                         {skill.name}
                       </span>
                     </div>
